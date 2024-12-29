@@ -16,12 +16,12 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3  # Клонирование репозитория
 
-    # Установка JDK 17 для Java
-    - name: Set up JDK 17 (для Java)
-      uses: actions/setup-java@v3
+    - name: Install JDK 17 (Corretto)
+      uses: actions/setup-java@v4
       with:
-        java-version: '17'  # Установка Java 17
-        distribution: 'openjdk'  # Используем Adoptium (если доступен для JDK 22)
+        distribution: 'corretto'  # Используем Amazon Corretto JDK
+        java-version: '17'  # Установка JDK 17
+        cache: 'maven'  # Кеширование зависимостей Maven
         
     # Установка зависимостей для Java (Maven)
     - name: Install dependencies (для Java)
