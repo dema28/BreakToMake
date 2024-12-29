@@ -1,26 +1,28 @@
-name: CI/CD Workflow
+name: CI/CD Pipeline
 
 on:
   push:
     branches:
-      - main  # Запускать при пуше в главную ветку
+      - main
   pull_request:
     branches:
-      - main  # Запускать при pull request в главную ветку
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Для стабильности можно использовать ubuntu-22.04
+    runs-on: ubuntu-24.04  # Используем последнюю доступную версию Ubuntu
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3  # Клонирование репозитория
+    # Шаг 1: Проверяем репозиторий
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Set up JDK 11
+    # Шаг 2: Установка JDK 11
+    - name: Set up JDK 11
       uses: actions/setup-java@v3
       with:
         java-version: '11'
-        distribution: 'adoptium'  # Используем adoptium вместо adoptopenjdk
+        distribution: 'adoptium'  # Заменили на adoptium
         java-package: jdk
         check-latest: false
         server-id: github
@@ -29,31 +31,39 @@ jobs:
         overwrite-settings: true
         job-status: success
         token: ${{ secrets.GITHUB_TOKEN }}
-    
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.9'  # Установка Python 3.9
 
-    - name: Install dependencies (для Python)
+    # Шаг 3: Установка зависимостей
+    - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt  # Установка зависимостей для Python
+        # Для Java-проектов, если используется Maven:
+        mvn install
+        # Для Python-проектов:
+        pip install -r requirements.txt
 
-    - name: Install dependencies (для Java)
-      run: |
-        mvn install  # Для Maven-проекта на Java (если используешь Maven)
-
+    # Шаг 4: Запуск тестов Java
     - name: Run Java tests
-      run: mvn test  # Запуск Java тестов
+      run: mvn test
 
+    # Шаг 5: Запуск тестов Python
     - name: Run Python tests
       run: |
-        pytest  # Запуск Python тестов
+        python -m unittest discover -s python_tests/tests
 
-    - name: Run Postman tests
+    # Шаг 6: Запуск тестов в Postman через Newman
+    - name: Run Postman tests with Newman
       run: |
-        npm install -g newman  # Установка Newman's CLI для выполнения Postman коллекций
-        newman run ./src/postman/collections/login_collection.json  # Запуск коллекции тестов из Postman
-        newman run ./src/postman/collections/product_collection.json
-        newman run ./src/postman/collections/home_collection.json
+        newman run postman/collections/login_collection.json
+        newman run postman/collections/product_collection.json
+        newman run postman/collections/home_collection.json
+
+    # Шаг 7: Сохранение отчётов
+    - name: Save test reports
+      run: |
+        mkdir -p reports/java_reports
+        mv target/*.xml reports/java_reports/
+
+        mkdir -p reports/python_reports
+        mv python_tests/*.xml reports/python_reports/
+
+        mkdir -p reports/postman_reports
+        mv postman/tests/*.json reports/postman_reports/
