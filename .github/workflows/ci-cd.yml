@@ -16,11 +16,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3  # Клонирование репозитория
 
-    # Установка JDK 22 для Java
-    - name: Set up JDK 22 (для Java)
+    # Установка JDK 17 для Java
+    - name: Set up JDK 17 (для Java)
       uses: actions/setup-java@v3
       with:
-        java-version: '22'  # Установка Java 22
+        java-version: '17'  # Установка Java 17
         distribution: 'adoptium'  # Используем Adoptium (если доступен для JDK 22)
         
     # Установка зависимостей для Java (Maven)
