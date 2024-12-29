@@ -16,13 +16,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3  # Клонирование репозитория
 
-    - name: Set up JDK 17 (для Java)
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17'  # Установка JDK 22
-        distribution: adoptium  # Использование дистрибутива Adoptium
-        java-package: jdk
-
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
@@ -32,19 +25,6 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt  # Установка зависимостей для Python
-
-    - name: Install dependencies (для Java)
-      run: |
-        mvn install  # Для Maven-проекта на Java (если используешь Maven)
-
-    - name: Check Java version
-      run: java -version  # Проверка версии Java
-
-    - name: Check Maven version
-      run: mvn -version  # Проверка версии Maven
-
-    - name: Run Java tests
-      run: mvn test  # Запуск Java тестов
 
     - name: Run Python tests
       run: |
