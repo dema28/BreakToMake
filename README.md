@@ -13,9 +13,11 @@
 
 
 ## Стек технологий
-	- **Языки**: Java, Python
-	- **Инструменты**: Git, GitHub Actions, Postman, Selenium, TestNG
-	- **Базы данных**: MySQL (для тестирования)
+
+- **Языки**: Java, Python
+- **Инструменты**: Git, GitHub Actions, Postman, Selenium, TestNG, Docker
+- **IDE**: IntelliJ IDEA, PyCharm
+
 
 ## Запуск проекта
 
