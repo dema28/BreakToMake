@@ -21,7 +21,7 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '17'  # Установка Java 17
-        distribution: 'adoptium'  # Используем Adoptium (если доступен для JDK 22)
+        distribution: 'openjdk'  # Используем Adoptium (если доступен для JDK 22)
         
     # Установка зависимостей для Java (Maven)
     - name: Install dependencies (для Java)
