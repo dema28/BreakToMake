@@ -35,6 +35,6 @@ jobs:
     - name: Run Postman tests
       run: |
         npm install -g newman  # Установка Newman's CLI для выполнения Postman коллекций
-        newman run ./src/postman/collections/Login Collection.postman_collection.json  # Запуск коллекции тестов из Postman
-        newman run ./src/postman/collections/Product Collection.postman_collection.json
-        newman run ./src/postman/collections/Home Collection.postman_collection.json
+        newman run ./src/postman/collections/Login_Collection.postman_collection.json  # Запуск коллекции тестов из Postman
+        newman run ./src/postman/collections/Product_Collection.postman_collection.json
+        newman run ./src/postman/collections/Home_Collection.postman_collection.json
