@@ -22,3 +22,26 @@ src/python_tests/.venv/ # Виртуальное окружение для Pytho
 
 # Файлы конфигурации для CI/CD
 .github/                # Конфигурации GitHub Actions
+
+# Исключение временных файлов iCloud
+*.icloud
+
+# Исключение системных файлов Windows
+Thumbs.db
+Desktop.ini
+
+# Исключение файлов macOS (если синхронизация на macOS)
+.DS_Store
+
+# Исключение IDE файлов (например, IntelliJ IDEA)
+*.iml
+.idea/
+.vscode/
+
+# Исключение логов
+*.log
+
+# Исключение временных файлов
+*.tmp
+*.bak
+
