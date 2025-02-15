@@ -18,7 +18,7 @@ postman_reports/        # Отчеты от Postman
 
 # Папка с конфигурациями и ресурсами
 src/main/resources/     # Ресурсы для Java
-local.properties
+src/main/resources/local.properties
 src/python_tests/.venv/ # Виртуальное окружение для Python
 
 # Файлы конфигурации для CI/CD
