@@ -61,3 +61,19 @@ jobs:
         newman run ./src/postman/collections/Login_Collection.postman_collection.json || echo "Postman collection not found"
         newman run ./src/postman/collections/Product_Collection.postman_collection.json || echo "Postman collection not found"
         newman run ./src/postman/collections/Home_Collection.postman_collection.json || echo "Postman collection not found"
+
+    - name: Generate Allure report
+      run: |
+        mvn allure:report
+
+    - name: Upload Allure report as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: allure-report
+        path: target/site/allure-maven-plugin
+
+
+
+
+
+
