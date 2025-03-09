@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3  # Клонирование репозитория
+      uses: actions/checkout@v4  # Клонирование репозитория
 
     - name: Install JDK 17 (Corretto)
       uses: actions/setup-java@v4
@@ -70,7 +70,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: allure-report
-        path: target/site/allure-maven-plugin
+        path: reports/allure_reports
 
 
 
