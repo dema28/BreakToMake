@@ -1,0 +1,8 @@
+com\breaktomake\tests\TestProduct.class
+com\breaktomake\pages\ProductPage.class
+com\breaktomake\pages\LoginPage.class
+com\breaktomake\pages\HomePage.class
+com\breaktomake\tests\TestHomePage.class
+com\breaktomake\tests\TestLogin.class
+com\breaktomake\utils\WebDriverSetup.class
+com\breaktomake\tests\AllureTestExample.class
