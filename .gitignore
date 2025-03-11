@@ -4,7 +4,7 @@
 *.bak                   # Резервные файлы
 
 # Папки с зависимостями и окружениями
-.venv/                  # Виртуальные окружения для Python
+src/python_tests/.venv/                  # Виртуальные окружения для Python
 target/                 # Результаты тестов для Maven
 *.idea/                 # Конфигурации IntelliJ IDEA
 *.iml                   # Файлы проекта IntelliJ IDEA
