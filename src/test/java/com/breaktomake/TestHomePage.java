@@ -1,4 +1,4 @@
-package com.breaktomake.tests;
+package com.breaktomake;
 
 public class TestHomePage {
 }
