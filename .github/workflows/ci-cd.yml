@@ -1,24 +1,3 @@
-Skip to content
-Navigation Menu
-dema28
-BreakToMake
-
-Type / to search
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-CI/CD Workflow
-add data #20
-Jobs
-Run details
-Workflow file for this run
-.github/workflows/ci-cd.yml at 113ee62
 name: CI/CD Workflow
 
 on:
@@ -35,7 +14,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3  # Клонирование репозитория
+      uses: actions/checkout@v4  # Клонирование репозитория
 
     - name: Install JDK 17 (Corretto)
       uses: actions/setup-java@v4
@@ -79,4 +58,3 @@ jobs:
         newman run ./src/postman/collections/Login_Collection.postman_collection.json || echo "Postman collection not found"
         newman run ./src/postman/collections/Product_Collection.postman_collection.json || echo "Postman collection not found"
         newman run ./src/postman/collections/Home_Collection.postman_collection.json || echo "Postman collection not found"
-add data · dema28/BreakToMake@113ee62
