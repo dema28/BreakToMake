@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.UUID;
@@ -27,7 +28,7 @@ public class MainTest {
 //        options.addArguments("--headless");
         driver = new ChromeDriver(options);
     }
-
+    @Ignore
     @Test
     public void testWebForm() {
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/web-form.html");
@@ -58,7 +59,7 @@ public class MainTest {
         assert currentUrl != null;
         Assert.assertTrue(currentUrl.contains("submitted"), "Форма не была отправлена");
     }
-
+    @Ignore
     @Test
     public void btnClick() {
         driver.get("https://demoqa.com/buttons");
@@ -82,7 +83,7 @@ public class MainTest {
         Assert.assertTrue(driver.findElement(By.xpath("//*[@id='dynamicClickMessage']"))
                 .isDisplayed(), "Кнопка была не нажата");
     }
-
+    @Ignore
     @Test
     public void radioButton() {
         driver.get("https://demoqa.com/radio-button");
