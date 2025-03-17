@@ -23,7 +23,7 @@ public class MainTest {
     @BeforeMethod
     public void setUp() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--user-data-dir=/tmp/chrome-profile-" + UUID.randomUUID()); // Уникальная директория
+        options.addArguments("--user-data-dir=/tmp/chrome-user-data-" + System.currentTimeMillis());
         options.addArguments("--start-maximized");
 //        options.addArguments("--headless");
         driver = new ChromeDriver(options);
