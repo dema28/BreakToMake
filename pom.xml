@@ -76,7 +76,7 @@
                 <version>3.2.5</version> <!-- Убедитесь, что версия актуальна -->
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>C:\Users\user\BreakToMake\testing.xml</suiteXmlFile> <!-- Укажите путь к вашему testng.xml -->
+                        <suiteXmlFile>testing.xml</suiteXmlFile> <!-- Укажите путь к вашему testng.xml -->
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
