@@ -83,7 +83,6 @@ public class MainTest {
         Assert.assertTrue(driver.findElement(By.xpath("//*[@id='dynamicClickMessage']"))
                 .isDisplayed(), "Кнопка была не нажата");
     }
-    @Ignore
     @Test
     public void radioButton() {
         driver.get("https://demoqa.com/radio-button");
