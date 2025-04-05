@@ -1,0 +1,5 @@
+{
+  "collection": "src/postman/collections/login_collection.json",
+  "environment": "src/postman/environments/local_environment.json",
+  "report": "reports/postman_reports/report.json"
+}
