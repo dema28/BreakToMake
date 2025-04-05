@@ -12,12 +12,11 @@ import org.testng.annotations.Listeners;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
-import java.util.Arrays;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@Listeners({AllureTestNg.class})
+@Listeners({AllureTestNg.class, TestListener.class}) // Подключаем Allure и кастомный TestListener
 public class BaseTest {
 
     protected WebDriver driver;
@@ -25,49 +24,36 @@ public class BaseTest {
 
     @BeforeClass
     public void setup() throws IOException {
-        // 🔇 Подавление лишних логов
-        System.setProperty("webdriver.chrome.silentOutput", "true"); // ChromeDriver
-        System.setProperty("wdm.logLevel", "ERROR");                 // WebDriverManager
+        // Подавление лишних логов
+        System.setProperty("webdriver.chrome.silentOutput", "true");
+        System.setProperty("wdm.logLevel", "ERROR");
         Logger.getLogger("org.openqa.selenium").setLevel(Level.SEVERE);
         Logger.getLogger("org.testng").setLevel(Level.SEVERE);
 
-        // 📦 Загрузка настроек из local.properties
+        // Загружаем конфигурацию
         FileInputStream fis = new FileInputStream("src/main/resources/config/local.properties");
         properties.load(fis);
 
+        // Настройки браузера
         String browser = properties.getProperty("browser", "chrome");
         String chromeOptionsRaw = properties.getProperty("local.chrome_options", "");
-        boolean maximize = Boolean.parseBoolean(properties.getProperty("maximize", "true"));
 
         if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
 
-            // 🛠 Применяем опции из local.chrome_options
             if (!chromeOptionsRaw.isEmpty()) {
                 String[] optionList = chromeOptionsRaw.split(",");
-                Arrays.stream(optionList).map(String::trim).forEach(options::addArguments);
+                for (String option : optionList) {
+                    options.addArguments(option.trim());
+                }
             }
-
-            // 🌐 Headless режим в CI
-            if ("true".equalsIgnoreCase(System.getenv("CI"))) {
-                options.addArguments("--headless=new");
-            }
-
-            options.addArguments("--window-size=1920,1080");
 
             driver = new ChromeDriver(options);
-
         } else {
             throw new RuntimeException("Browser not supported: " + browser);
         }
 
-        // 🖥️ Максимизация окна, если задана
-        if (maximize) {
-            driver.manage().window().maximize();
-        }
-
-        // ⏱️ Имплицитное ожидание
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 

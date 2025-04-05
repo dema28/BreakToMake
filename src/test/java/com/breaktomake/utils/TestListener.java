@@ -27,9 +27,7 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         logger.warning("🔴 FAILED: " + result.getName());
-        Object testClass = result.getInstance();
-        WebDriver driver = ((BaseTest) testClass).driver;
-
+        WebDriver driver = ((BaseTest) result.getInstance()).driver;
         if (driver != null) {
             saveScreenshot(driver);
         }
@@ -43,8 +41,4 @@ public class TestListener implements ITestListener {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 
-    @Override
-    public void onTestFinish(ITestResult result) {
-        logger.info("🔚 END TEST: " + result.getName());
-    }
 }
