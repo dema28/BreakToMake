@@ -22,13 +22,27 @@ Desktop.ini
 target/
 *.jar
 *.war
+*.class
+
+# Maven build временные
+target/maven-status/
+target/maven-archiver/
+target/surefire-reports/
 
 # Allure reports (временные, пересоздаются при каждом запуске)
+allure-results/
+allure-report/
 target/allure-results/
 target/allure-report/
 
+# Тестовые отчёты и артефакты
+*.html
+*.xml
+*.lst
+*.txt
+
 # ===============================
-# Python окружения
+# Python окружения (если используются)
 # ===============================
 src/python_tests/.venv/
 
