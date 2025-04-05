@@ -35,8 +35,8 @@ jobs:
       - name: Run Java UI tests
         run: mvn clean test
 
-      - name: Debug:list contents of target/allure-results
-        run: ls -R target/allure-results || echo "No results found"
+      - name: Debug:list contents of allure-results
+        run: ls -R allure-results || echo "No results found"
 
       - name: Install Allure CLI
         run: |
