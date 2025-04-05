@@ -1,12 +1,12 @@
 package com.breaktomake.utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.testng.AllureTestNg;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 
 import java.io.FileInputStream;
@@ -17,17 +17,11 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@Listeners({TestListener.class})
+@Listeners({AllureTestNg.class})
 public class BaseTest {
 
     protected WebDriver driver;
     protected Properties properties = new Properties();
-    protected String baseUrl;
-
-    @BeforeSuite
-    public void cleanEnvironmentBeforeSuite() {
-        ProjectSetup.cleanProjectFolders();
-    }
 
     @BeforeClass
     public void setup() throws IOException {
@@ -41,7 +35,6 @@ public class BaseTest {
         FileInputStream fis = new FileInputStream("src/main/resources/config/local.properties");
         properties.load(fis);
 
-        baseUrl = properties.getProperty("base.url", "https://example.com");
         String browser = properties.getProperty("browser", "chrome");
         String chromeOptionsRaw = properties.getProperty("local.chrome_options", "");
         boolean maximize = Boolean.parseBoolean(properties.getProperty("maximize", "true"));
