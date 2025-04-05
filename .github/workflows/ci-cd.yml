@@ -3,42 +3,50 @@ name: CI/CD Workflow
 on:
   push:
     branches:
-      - main  # Запускать при пуше в главную ветку
+      - main
   pull_request:
     branches:
-      - main  # Запускать при pull request в главную ветку
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Выбор операционной системы для CI (например, Ubuntu)
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4  # Клонирование репозитория
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Install JDK 17 (Corretto)
-      uses: actions/setup-java@v4
-      with:
-        distribution: 'corretto'  # Используем Amazon Corretto JDK
-        java-version: '17'  # Установка JDK 17
-        cache: 'maven'  # Кеширование зависимостей Maven
-        
-    # Установка зависимостей для Java (Maven)
-    - name: Install dependencies (для Java)
-      run: |
-        mvn install  # Для Maven-проекта на Java
-    # Запуск Java тестов
-    - name: Run Java tests
-      run: mvn test  # Запуск Java тестов
+      - name: Install JDK 17 (Corretto)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'corretto'
+          java-version: '17'
+          cache: 'maven'
 
+      - name: Run Java tests
+        run: mvn clean test
 
-    # Установка Newman для выполнения Postman коллекций
-    - name: Install Newman
-      run: |
-        npm install -g newman  # Установка Newman's CLI для выполнения Postman коллекций
-    # Запуск Postman тестов
-    - name: Run Postman tests
-      run: |
-        newman run ./src/postman/collections/Login_Collection.postman_collection.json || echo "Postman collection not found"
-        newman run ./src/postman/collections/Product_Collection.postman_collection.json || echo "Postman collection not found"
-        newman run ./src/postman/collections/Home_Collection.postman_collection.json || echo "Postman collection not found"
+      - name: Upload Allure results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: target/allure-results
+
+      - name: Install Newman
+        run: npm install -g newman
+
+      - name: Run Postman Login Collection
+        run: |
+          newman run ./src/postman/collections/Login_Collection.postman_collection.json \
+            --environment ./src/postman/environments/Local\ Environment.postman_environment.json || echo "Login Collection failed"
+
+      - name: Run Postman Product Collection
+        run: |
+          newman run ./src/postman/collections/Product_Collection.postman_collection.json \
+            --environment ./src/postman/environments/Local\ Environment.postman_environment.json || echo "Product Collection failed"
+
+      - name: Run Postman Home Collection
+        run: |
+          newman run ./src/postman/collections/Home_Collection.postman_collection.json \
+            --environment ./src/postman/environments/Local\ Environment.postman_environment.json || echo "Home Collection failed"
