@@ -28,11 +28,10 @@ public class TestListener implements ITestListener {
     public void onTestFailure(ITestResult result) {
         logger.warning("🔴 FAILED: " + result.getName());
         Object testClass = result.getInstance();
-        if (testClass instanceof BaseTest) {
-            WebDriver driver = ((BaseTest) testClass).driver;
-            if (driver != null) {
-                saveScreenshot(driver);
-            }
+        WebDriver driver = ((BaseTest) testClass).driver;
+
+        if (driver != null) {
+            saveScreenshot(driver);
         }
 
         String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
@@ -45,17 +44,7 @@ public class TestListener implements ITestListener {
     }
 
     @Override
-    public void onTestSkipped(ITestResult result) {
-        logger.warning("⚠️ SKIPPED: " + result.getName());
-    }
-
-    @Override
-    public void onStart(ITestContext context) {
-        logger.info("=== 🔷 START TEST SUITE: " + context.getName() + " ===");
-    }
-
-    @Override
-    public void onFinish(ITestContext context) {
-        logger.info("=== 🔶 END TEST SUITE: " + context.getName() + " ===");
+    public void onTestFinish(ITestResult result) {
+        logger.info("🔚 END TEST: " + result.getName());
     }
 }
