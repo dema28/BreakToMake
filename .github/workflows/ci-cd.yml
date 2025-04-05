@@ -1,52 +1,63 @@
-name: CI/CD Workflow
+name: Java UI Tests
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install JDK 17 (Corretto)
+      - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           distribution: 'corretto'
           java-version: '17'
           cache: 'maven'
 
-      - name: Run Java tests
+      - name: Install Google Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget gnupg unzip
+          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor | sudo tee /usr/share/keyrings/google-chrome.gpg > /dev/null
+          echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+      - name: Start Xvfb
+        run: |
+          export DISPLAY=:99
+          Xvfb :99 -screen 0 1920x1080x24 > /dev/null 2>&1 &
+          echo "DISPLAY=:99" >> $GITHUB_ENV
+
+      - name: Run Java UI tests
         run: mvn clean test
 
+      - name: Debug:list contents of target/allure-results
+        run: ls -R target/allure-results || echo "No results found"
+
+      - name: Install Allure CLI
+        run: |
+          wget https://github.com/allure-framework/allure2/releases/download/2.33.0/allure-2.33.0.tgz
+          tar -zxvf allure-2.33.0.tgz
+          sudo mv allure-2.33.0 /opt/allure
+          sudo ln -s /opt/allure/bin/allure /usr/bin/allure
+          allure --version
+
+      - name: Generate Allure report
+        run: |
+          allure generate target/allure-results --clean -o target/allure-report
+
+      - name: Upload Allure report
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: target/allure-report
+
       - name: Upload Allure results
-        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: allure-results
           path: target/allure-results
-
-      - name: Install Newman
-        run: npm install -g newman
-
-      - name: Run Postman Login Collection
-        run: |
-          newman run ./src/postman/collections/Login_Collection.postman_collection.json \
-            --environment ./src/postman/environments/Local\ Environment.postman_environment.json || echo "Login Collection failed"
-
-      - name: Run Postman Product Collection
-        run: |
-          newman run ./src/postman/collections/Product_Collection.postman_collection.json \
-            --environment ./src/postman/environments/Local\ Environment.postman_environment.json || echo "Product Collection failed"
-
-      - name: Run Postman Home Collection
-        run: |
-          newman run ./src/postman/collections/Home_Collection.postman_collection.json \
-            --environment ./src/postman/environments/Local\ Environment.postman_environment.json || echo "Home Collection failed"
