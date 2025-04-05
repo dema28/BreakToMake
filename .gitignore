@@ -35,7 +35,7 @@ src/python_tests/.venv/
 # ===============================
 # Конфиги и ресурсы
 # ===============================
-src/main/resources/local.properties
+src/main/resources/config/local.properties
 
 # ===============================
 # CI/CD, отчёты, Postman
