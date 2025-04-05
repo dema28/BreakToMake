@@ -36,7 +36,7 @@ jobs:
         run: mvn clean test
 
       - name: Debug:list contents of allure-results
-        run: ls -R allure-results || echo "No results found"
+        run: ls -R target/allure-results || echo "No results found"
 
       - name: Install Allure CLI
         run: |
@@ -48,16 +48,16 @@ jobs:
 
       - name: Generate Allure report
         run: |
-          allure generate allure-results --clean -o target/allure-report
+          allure generate target/allure-results --clean -o target/allure-report
 
       - name: Upload Allure report
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
-          path: allure-report
+          path: target/allure-report
 
       - name: Upload Allure results
         uses: actions/upload-artifact@v4
         with:
           name: allure-results
-          path: allure-results
+          path: target/allure-results
