@@ -54,7 +54,6 @@ src/main/resources/config/local.properties
 # ===============================
 # CI/CD, отчёты, Postman
 # ===============================
-.github/
 logs/
 reports/
 postman_reports/
