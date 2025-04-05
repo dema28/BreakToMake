@@ -10,6 +10,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.util.List;
+
 @Listeners({AllureTestNg.class})
 @Epic("Навигация")
 @Feature("Переход в каталог и проверка карточек домов")
