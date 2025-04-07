@@ -1,0 +1,6 @@
+//browser=chrome
+//headless=true
+//timeout=10
+//screenshot.on.fail=true
+//username=
+//password=
