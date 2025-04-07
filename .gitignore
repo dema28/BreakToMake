@@ -30,8 +30,6 @@ target/maven-archiver/
 target/surefire-reports/
 
 # Allure reports (временные, пересоздаются при каждом запуске)
-allure-results/
-allure-report/
 target/allure-results/
 target/allure-report/
 
@@ -40,24 +38,42 @@ target/allure-report/
 *.xml
 *.lst
 *.txt
+*.zip
+*.tgz
 
 # ===============================
 # Python окружения (если используются)
 # ===============================
 src/python_tests/.venv/
+__pycache__/
+*.pyc
 
 # ===============================
 # Конфиги и ресурсы
 # ===============================
-src/main/resources/config/local.properties
+src/test/resources/local.properties
+.env
+.env.*
 error_log.txt
+
+#================================
+# Игнорировать чувствительные данные
+#================================
+private/
+!login/public_users.csv
 
 # ===============================
 # CI/CD, отчёты, Postman
 # ===============================
 logs/
 reports/
-postman_reports/
+reports/postman_reports/
+
+# ===============================
+# Базы данных (временные)
+# ===============================
+*.db
+*.sqlite
 
 # ===============================
 # Git keeps для пустых папок (опционально)
