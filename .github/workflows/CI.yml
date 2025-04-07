@@ -46,7 +46,7 @@ jobs:
 
       # Шаг 6: Запуск тестов
       - name: Run Java UI tests
-        run: mvn clean test
+        run: mvn clean test -Denv=ci
 
       # Шаг 7: Просмотр содержимого allure-results (для отладки)
       - name: Debug:list contents of allure-results
