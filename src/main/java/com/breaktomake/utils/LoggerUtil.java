@@ -25,5 +25,16 @@ public class LoggerUtil {
     public static void debug(String message) {
         log.debug(message);
     }
-}
 
+    public static void logStart(String testName) {
+        log.info("===== START TEST: " + testName + " =====");
+    }
+
+    public static void logEnd(String testName) {
+        log.info("===== END TEST: " + testName + " =====");
+    }
+
+    public static void logError(String message, Throwable t) {
+        log.error("===== ERROR: " + message + " =====", t);
+    }
+}

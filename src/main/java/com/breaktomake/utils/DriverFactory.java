@@ -54,7 +54,7 @@ public class DriverFactory {
                     throw new IllegalArgumentException("Unsupported browser: " + browser);
             }
 
-            driver.get().manage().window().maximize(); // по умолчанию
+//            driver.get().manage().window().maximize(); // по умолчанию
         }
     }
 
