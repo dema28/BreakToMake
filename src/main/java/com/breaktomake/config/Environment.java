@@ -48,7 +48,13 @@ public class Environment {
     }
 
     public static final String BASE_URL = "https://modultest1.framer.website";
-    public static final String CONTACT_PAGE = BASE_URL + "/kontakty";
+    public static final String KATALOG_PAGE = BASE_URL + "/katalog-dom%C5%AF";
+    public static final String PROJEKT_PAGE =BASE_URL + "/projekty";
+    public static final String O_NAS_PAGE = BASE_URL + "/o-n%C3%A1s";
+    public static final String REALIZACE_PAGE = BASE_URL + "/rozsah-realizace";
+    public static final String KARIERA_PAGE = BASE_URL + "/kari%C3%A9ra";
+    public static final String GALERIE_PAGE = BASE_URL + "/albums";
+
 
 
 }
