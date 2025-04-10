@@ -10,20 +10,27 @@ import java.util.List;
 public class CsvDataProvider {
 
     public static Object[][] readCsv(String filePath) throws Exception {
-        List<Object[]> data = new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new FileReader(filePath));
-        String line;
-        boolean skipHeader = true;
+        LoggerUtil.info(com.breaktomake.utils.LoggerTag.UTILS, "📂 Загрузка CSV-файла: " + filePath);
 
-        while ((line = reader.readLine()) != null) {
-            if (skipHeader) {
-                skipHeader = false;
-                continue;
+        List<Object[]> data = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            boolean skipHeader = true;
+
+            while ((line = reader.readLine()) != null) {
+                if (skipHeader) {
+                    skipHeader = false;
+                    continue;
+                }
+                data.add(line.split(","));
             }
-            data.add(line.split(","));
+
+            LoggerUtil.info(com.breaktomake.utils.LoggerTag.UTILS, "✅ CSV загружен: " + data.size() + " строк");
+        } catch (Exception e) {
+            LoggerUtil.error(com.breaktomake.utils.LoggerTag.UTILS, "❌ Ошибка при чтении CSV: " + e.getMessage(), e);
+            throw e;
         }
 
-        reader.close();
         return data.toArray(new Object[0][0]);
     }
 
@@ -36,4 +43,10 @@ public class CsvDataProvider {
     public static Object[][] getInvalidLoginData() throws Exception {
         return readCsv("test_data/login/invalid_users.csv");
     }
+
+    @DataProvider(name = "contactFormData")
+    public static Object[][] getContactFormData() throws Exception {
+        return readCsv("test_data/form/valid_contacts.csv");
+    }
+
 }
