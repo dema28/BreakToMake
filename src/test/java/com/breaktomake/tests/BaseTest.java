@@ -29,6 +29,7 @@ public class BaseTest {
     @AfterMethod
     public void tearDown(ITestResult result) {
         boolean testFailed = result.getStatus() == ITestResult.FAILURE;
+        LoggerUtil.info("📝 Завершаем тест, проверяем статус: " + testFailed);
 
         if (testFailed && Environment.isScreenshotOnFail()) {
             LoggerUtil.info("\uD83D\uDCF8 Тест упал, делаем скриншот");
@@ -39,4 +40,5 @@ public class BaseTest {
         DriverFactory.quitDriver(testFailed);
         LoggerUtil.logEnd("\uD83D\uDEB0 [tearDown] Драйвер закрыт");
     }
+
 }
