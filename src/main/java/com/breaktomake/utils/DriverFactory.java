@@ -14,47 +14,42 @@ public class DriverFactory {
     public static void initDriver() {
         if (driver.get() == null) {
             String browser = Environment.getBrowser().toLowerCase();
-            LoggerUtil.info("🌐 Инициализация драйвера: " + browser);
+            LoggerUtil.info(com.breaktomake.utils.LoggerTag.DRIVER, "🌐 Инициализация драйвера: " + browser);
 
             switch (browser) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions options = new ChromeOptions();
 
-                    // ✅ Применяем дополнительные Chrome-аргументы из config
                     List<String> chromeArgs = Environment.getChromeOptions();
                     if (!chromeArgs.isEmpty()) {
                         for (String arg : chromeArgs) {
                             options.addArguments(arg);
                         }
-                        LoggerUtil.info("⚙️ Доп. Chrome аргументы: " + chromeArgs);
+                        LoggerUtil.debug(com.breaktomake.utils.LoggerTag.DRIVER, "⚙️ Доп. Chrome аргументы: " + chromeArgs);
                     }
 
-                    // ✅ Применяем размер окна из config
                     String windowSize = Environment.getWindowSize();
                     if (windowSize != null && !windowSize.isBlank()) {
                         options.addArguments("--window-size=" + windowSize);
-                        LoggerUtil.info("🪟 Размер окна: " + windowSize);
+                        LoggerUtil.info(com.breaktomake.utils.LoggerTag.DRIVER, "🪟 Размер окна: " + windowSize);
                     }
 
-                    // ✅ Headless режим по флагу
                     if (Environment.isHeadless()) {
                         options.addArguments("--headless=new");
-                        LoggerUtil.info("🔒 Headless режим включен");
+                        LoggerUtil.info(com.breaktomake.utils.LoggerTag.DRIVER, "🔒 Headless режим включен");
                     } else {
-                        LoggerUtil.info("🖥️ Headless режим отключен (GUI)");
+                        LoggerUtil.info(com.breaktomake.utils.LoggerTag.DRIVER, "🖥️ Headless режим отключен (GUI)");
                     }
 
                     driver.set(new ChromeDriver(options));
-                    LoggerUtil.info("✅ ChromeDriver запущен");
+                    LoggerUtil.info(com.breaktomake.utils.LoggerTag.DRIVER, "✅ ChromeDriver запущен");
                     break;
 
                 default:
-                    LoggerUtil.error("❌ Неподдерживаемый браузер: " + browser, null);
+                    LoggerUtil.error(com.breaktomake.utils.LoggerTag.DRIVER, "❌ Неподдерживаемый браузер: " + browser, null);
                     throw new IllegalArgumentException("Unsupported browser: " + browser);
             }
-
-//            driver.get().manage().window().maximize(); // по умолчанию
         }
     }
 
@@ -65,10 +60,10 @@ public class DriverFactory {
     public static void quitDriver(boolean testFailed) {
         if (driver.get() != null) {
             if (!testFailed || Environment.isCloseBrowserOnError()) {
-                LoggerUtil.info("🚪 Закрытие WebDriver. Тест упал: " + testFailed);
+                LoggerUtil.info(com.breaktomake.utils.LoggerTag.DRIVER, "🚪 Закрытие WebDriver. Тест упал: " + testFailed);
                 driver.get().quit();
             } else {
-                LoggerUtil.info("🚫 WebDriver НЕ закрыт (оставлен для отладки после падения теста)");
+                LoggerUtil.info(com.breaktomake.utils.LoggerTag.DRIVER, "🚫 WebDriver НЕ закрыт (оставлен для отладки после падения теста)");
             }
             driver.remove();
         }
