@@ -5,24 +5,30 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class ConfigReader {
-    private static Properties props = new Properties();
+    private static final Properties props = new Properties();
 
     static {
-        String env = System.getProperty("env", "local"); // по умолчанию "local"
-        String fileName = env + ".properties"; // например: "ci.properties" или "local.properties"
+        String env = System.getProperty("env", "local");
+        String fileName = env + ".properties";
 
         try (InputStream input = ConfigReader.class.getClassLoader().getResourceAsStream(fileName)) {
             if (input == null) {
-                throw new RuntimeException("❌ Файл конфигурации " + fileName + " не найден в classpath");
+                LoggerUtil.error(com.breaktomake.utils.LoggerTag.ENV, "❌ Файл конфигурации не найден: " + fileName, null);
+                throw new RuntimeException("Файл конфигурации " + fileName + " не найден в classpath");
             }
             props.load(input);
-            System.out.println("✅ Загружен конфиг: " + fileName);
+            LoggerUtil.info(com.breaktomake.utils.LoggerTag.ENV, "✅ Загружен конфиг: " + fileName);
         } catch (IOException e) {
-            throw new RuntimeException("❌ Ошибка при загрузке " + fileName, e);
+            LoggerUtil.error(com.breaktomake.utils.LoggerTag.ENV, "❌ Ошибка при загрузке конфигурации: " + fileName, e);
+            throw new RuntimeException("Ошибка при загрузке " + fileName, e);
         }
     }
 
     public static String get(String key) {
-        return props.getProperty(key);
+        String value = props.getProperty(key);
+        if (value == null) {
+            LoggerUtil.warn(com.breaktomake.utils.LoggerTag.ENV, "⚠️ Ключ не найден в конфиге: " + key);
+        }
+        return value;
     }
 }

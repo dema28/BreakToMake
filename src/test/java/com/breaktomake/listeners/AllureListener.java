@@ -1,6 +1,7 @@
 package com.breaktomake.listeners;
 
 import com.breaktomake.utils.DriverFactory;
+import com.breaktomake.utils.LoggerTag;
 import com.breaktomake.utils.LoggerUtil;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
@@ -10,9 +11,7 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
+import java.nio.file.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -23,28 +22,30 @@ public class AllureListener implements ITestListener {
         WebDriver driver = DriverFactory.getDriver();
         String testName = result.getMethod().getMethodName();
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
-        String logFile = "logs/test_logs/FAILED_" + testName + "_" + timestamp + ".log";
+        Path logPath = Paths.get("logs/test_logs", "FAILED_" + testName + "_" + timestamp + ".log");
 
-        String message = "[FAILED] Test: " + testName + "\n"
+        String message = "==========[ FAILED TEST ]==========\n"
+                + "Test: " + testName + "\n"
                 + "Time: " + timestamp + "\n"
-                + "Exception: " + result.getThrowable();
+                + "Exception: " + result.getThrowable() + "\n"
+                + "===================================\n";
 
-        LoggerUtil.error("❌ Тест упал: " + testName, result.getThrowable());
+        LoggerUtil.error(LoggerTag.LISTENER, "❌ Тест упал: " + testName, result.getThrowable());
 
         try {
-            Files.createDirectories(Paths.get("logs/test_logs"));
-            Files.write(Paths.get(logFile), message.getBytes(), StandardOpenOption.CREATE);
+            Files.createDirectories(logPath.getParent());
+            Files.write(logPath, message.getBytes(), StandardOpenOption.CREATE);
             attachLog("Failure Log - " + testName, message);
-            LoggerUtil.info("📄 Сохранён лог падения: " + logFile);
+            LoggerUtil.info(LoggerTag.LISTENER, "📄 Сохранён лог падения: " + logPath);
         } catch (IOException e) {
-            LoggerUtil.error("❌ Ошибка записи лога падения в файл", e);
+            LoggerUtil.error(LoggerTag.LISTENER, "❌ Ошибка записи лога падения в файл", e);
         }
 
         if (driver != null) {
-            LoggerUtil.info("📸 Снимаем скриншот (Allure)");
+            LoggerUtil.info(LoggerTag.LISTENER, "📸 Снимаем скриншот (Allure)");
             saveScreenshot(driver);
         } else {
-            LoggerUtil.warn("⚠️ WebDriver недоступен — скриншот не снят");
+            LoggerUtil.warn(LoggerTag.LISTENER, "⚠️ WebDriver недоступен — скриншот не снят");
         }
     }
 

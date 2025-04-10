@@ -27,7 +27,11 @@ public enum MenuItem {
 
     GALERIE("Galerie",
             By.xpath("//h2[text()='Galerie']"),"Galerie",
-            Environment.GALERIE_PAGE);
+            Environment.GALERIE_PAGE),
+
+    KONTAKTY("Kontakty",
+            By.xpath("//a[.//p[text()='Kontakty']]"),"Kontakty",
+            Environment.KONTAKTY_PAGE);
 
     private final String name;
     private final By locator;

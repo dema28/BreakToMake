@@ -10,9 +10,12 @@ public class ScrollUtil {
     @Step("Прокрутка к элементу: {element}")
     public static void scrollToElement(WebDriver driver, WebElement element) {
         try {
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element);
+            LoggerUtil.debug(com.breaktomake.utils.LoggerTag.UTILS, "📦 Прокрутка к элементу: " + element);
+            ((JavascriptExecutor) driver)
+                    .executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element);
         } catch (Exception e) {
-            System.out.println("Ошибка при прокрутке: " + e.getMessage());
+            LoggerUtil.warn(com.breaktomake.utils.LoggerTag.UTILS, "⚠️ Ошибка при прокрутке: " + e.getMessage());
         }
     }
 }
+
