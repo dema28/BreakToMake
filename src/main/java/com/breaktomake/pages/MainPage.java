@@ -113,13 +113,17 @@ public class MainPage extends BasePage {
         element.click();
     }
 
-    @Step("Клик по иконке Instagram")
-    public void clickInstagramIcon() {
+    @Step("Получение URL иконки Instagram")
+    public String getInstagramUrl() {
         WebElement element = driver.findElement(instagramIcon);
         ScrollUtil.scrollToElement(driver, element);
-        LoggerUtil.info(LoggerTag.PAGE, "🖱 Клик по иконке Instagram");
-        element.click();
+        String instagramUrl = element.getAttribute("href");
+        LoggerUtil.info(LoggerTag.PAGE, "🔗 Получен URL Instagram: " + instagramUrl);
+        return instagramUrl;
     }
+
+
+
 
     @Step("Переключение на новую вкладку и получение URL")
     public String switchToNewTabAndGetUrl() {

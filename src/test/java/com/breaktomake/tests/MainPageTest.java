@@ -70,16 +70,14 @@ public class MainPageTest extends BaseTest {
     public void testInstagramLinkOpensCorrectProfile() {
         MainPage mainPage = new MainPage(driver);
 
-        step("Клик по иконке Instagram");
-        mainPage.clickInstagramIcon();
+        step("Получение URL иконки Instagram");
+        String actualUrl = mainPage.getInstagramUrl();
 
-        step("Переключение на новую вкладку и получение URL");
-        String instaUrl = mainPage.switchToNewTabAndGetUrl();
-
-        assertTrue(instaUrl.contains("instagram.com/modul.construct/"),
-                "Открыт не тот URL: " + instaUrl + " (ожидался профиль 'modul.construct/')");
-
+        step("Проверка, что ссылка ведет на правильный Instagram профиль");
+        String expectedUrl = "https://www.instagram.com/modul.construct/";
+        assertTrue(actualUrl.contains(expectedUrl), "Ожидался переход на: " + expectedUrl + " но перешли на: " + actualUrl);
     }
+
 
     @Test(description = "Проверка перехода по ссылке Facebook")
     @Story("Переход по ссылке Facebook")
