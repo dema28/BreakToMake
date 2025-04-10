@@ -7,6 +7,7 @@ import io.qameta.allure.*;
 import org.testng.annotations.Test;
 
 
+import static io.qameta.allure.Allure.step;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -62,6 +63,49 @@ public class MainPageTest extends BaseTest {
 
         }
     }
+
+    @Test(description = "Проверка перехода по ссылке Instagram")
+    @Story("Переход по ссылке Instagram")
+    @Description("Проверка, что ссылка в футере корректно ведёт на Instagram-профиль компании")
+    public void testInstagramLinkOpensCorrectProfile() {
+        MainPage mainPage = new MainPage(driver);
+
+        step("Клик по иконке Instagram");
+        mainPage.clickInstagramIcon();
+
+        step("Переключение на новую вкладку и получение URL");
+        String instaUrl = mainPage.switchToNewTabAndGetUrl();
+
+        step("Проверка URL Instagram");
+        assertUrlContains(instaUrl, "instagram.com/modul.construct");
+
+    }
+
+    @Test(description = "Проверка перехода по ссылке Facebook")
+    @Story("Переход по ссылке Facebook")
+    @Description("Проверка, что ссылка в футере корректно ведёт на Facebook-профиль компании")
+    public void testFacebookLinkOpensCorrectProfile() {
+        MainPage mainPage = new MainPage(driver);
+
+        step("Клик по иконке Facebook");
+        mainPage.clickFacebookIcon();
+
+        step("Переключение на новую вкладку и получение URL");
+        String fbUrl = mainPage.switchToNewTabAndGetUrl();
+
+        step("Проверка URL Facebook");
+        assertUrlContains(fbUrl, "facebook.com/people/Modul-Construct/61552282003531/");
+
+    }
+
+    @Step("Проверка, что URL содержит: {expected}")
+    private void assertUrlContains(String actualUrl, String expected) {
+        assertTrue(actualUrl != null && actualUrl.contains(expected),
+                "Открыт не тот URL или вкладка не открылась. Текущий: " + actualUrl);
+    }
+
+
+
 
 
 
