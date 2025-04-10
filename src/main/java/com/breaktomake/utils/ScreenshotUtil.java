@@ -15,12 +15,14 @@ public class ScreenshotUtil {
     public static void captureScreenshot(WebDriver driver, String name) {
         File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
-        File dest = new File("reports/allure_reports/screenshots/" + name + "_" + timestamp + ".png");
+        String screenshotPath = "reports/allure_reports/screenshots/" + name + "_" + timestamp + ".png";
+        File dest = new File(screenshotPath);
 
         try {
             FileUtils.copyFile(src, dest);
+            LoggerUtil.info(com.breaktomake.utils.LoggerTag.UTILS, "📸 Скриншот сохранён: " + screenshotPath);
         } catch (IOException e) {
-            e.printStackTrace();
+            LoggerUtil.error(com.breaktomake.utils.LoggerTag.UTILS, "❌ Ошибка при сохранении скриншота: " + e.getMessage(), e);
         }
     }
 }
