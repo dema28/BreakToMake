@@ -76,8 +76,8 @@ public class MainPageTest extends BaseTest {
         step("Переключение на новую вкладку и получение URL");
         String instaUrl = mainPage.switchToNewTabAndGetUrl();
 
-        step("Проверка URL Instagram");
-        assertUrlContains(instaUrl, "instagram.com/modul.construct/");
+        assertTrue(instaUrl.contains("instagram.com/modul.construct/"),
+                "Открыт не тот URL: " + instaUrl + " (ожидался профиль 'modul.construct/')");
 
     }
 
