@@ -37,14 +37,11 @@ public class ProviderTest extends BaseTest {
         step("Прокрутка к форме обратной связи");
         mainPage.scrollToContactForm();
 
-
-
         step("Заполнение и отправка формы обратной связи");
         mainPage.fillAndSubmitContactForm(firstName, lastName, email, phone, message, topic);
 
         step("Проверка появления сообщения об успешной отправке");
         assertTrue(mainPage.isSuccessMessageDisplayed(), "Сообщение 'Děkujeme' не отображается после отправки формы.");
-
     }
 
     @Test(dataProvider = "validLoginData", dataProviderClass = CsvDataProvider.class)
