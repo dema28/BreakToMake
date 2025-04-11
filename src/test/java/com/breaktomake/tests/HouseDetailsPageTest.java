@@ -49,7 +49,6 @@ public class HouseDetailsPageTest extends BaseTest {
         }
     }
 
-
     @Test(description = "Проверка контактного лица на странице проекта")
     @Story("Контактная информация на карточке дома")
     @Severity(SeverityLevel.NORMAL)
@@ -61,7 +60,6 @@ public class HouseDetailsPageTest extends BaseTest {
             MainPage mainPage = new MainPage(driver);
             mainPage.goToCatalogPage();
             mainPage.clickOnHouseCard();
-
 
             HouseDetailsPage housePage = new HouseDetailsPage(driver);
 
