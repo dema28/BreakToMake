@@ -48,5 +48,4 @@ public class CsvDataProvider {
     public static Object[][] getContactFormData() throws Exception {
         return readCsv("test_data/form/valid_contacts.csv");
     }
-
 }
