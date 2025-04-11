@@ -40,5 +40,4 @@ public class BaseTest {
         DriverFactory.quitDriver(testFailed);
         LoggerUtil.logEnd("\uD83D\uDEB0 [tearDown] Драйвер закрыт");
     }
-
 }
