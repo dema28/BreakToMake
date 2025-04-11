@@ -149,29 +149,23 @@ public class MainPage extends BasePage {
     public void fillAndSubmitContactForm(String firstName, String lastName, String email, String phone, String message, String topic) {
         scrollToElement(By.tagName("form"));
 
-        // Заполнение полей
         type(By.xpath("//input[@name='Křestní jméno']"), firstName);
         type(By.xpath("//*[@name='Příjmení']"), lastName);
         type(By.xpath("//*[@name='E-mailová adresa']"), email);
         type(By.xpath("//*[@name='Telefon']"), phone);
         type(By.xpath("//*[@name='Zpráva']"), message);
 
-        // Выбор из выпадашки
         selectTopicFromDropdown(topic);
 
-        // 🔄 Ждём появления успешного сообщения и кликаем только один раз
         clickSubmitButton();
 
-        // Ждём, что сообщение об успешной отправке появится
         assertTrue(isSuccessMessageDisplayed(), "Сообщение 'Děkujeme' не отображается после отправки формы.");
     }
-
-
 
     @Step("Выбор темы из выпадающего списка: {topic}")
     public void selectTopicFromDropdown(String topic) {
         By dropdown = By.xpath("//select[@name='Předmět']");
-        click(dropdown);  // Открыть выпадашку
+        click(dropdown);
 
         By wrapper = By.xpath("//div[contains(@class, 'framer-form-select-wrapper')]");
         WebElement container = waitForElementToBeVisible(wrapper);
@@ -183,7 +177,7 @@ public class MainPage extends BasePage {
             String text = option.getText().trim();
             LoggerUtil.debug(LoggerTag.PAGE, "🔹 " + text);
             if (text.equals(topic)) {
-                option.click(); // Выбор нужного
+                option.click();
                 found = true;
                 break;
             }
@@ -194,12 +188,11 @@ public class MainPage extends BasePage {
             throw new RuntimeException("Значение '" + topic + "' не найдено в выпадающем списке.");
         }
 
-        // 🧹 Попытка закрыть выпадашку несколькими способами
         try {
             LoggerUtil.debug(LoggerTag.PAGE, "🧪 Попытка закрыть выпадашку через ESC");
             Actions actions = new Actions(driver);
             actions.sendKeys(Keys.ESCAPE).perform();
-            Thread.sleep(500); // Подождать, чтобы всё закрылись
+            Thread.sleep(500);
         } catch (Exception e) {
             LoggerUtil.warn(LoggerTag.PAGE, "⚠️ Не удалось закрыть через ESC: " + e.getMessage());
         }
@@ -211,28 +204,15 @@ public class MainPage extends BasePage {
     public void clickSubmitButton() {
         By submitButton = By.xpath("//button[@type='submit' and contains(., 'Odeslat')]");
 
-        // Прокрутка к кнопке
         WebElement button = waitForElementToBeVisible(submitButton);
         ScrollUtil.scrollToElement(driver, button);
 
-        // Убедиться, что кнопка активна
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(submitButton));
 
         LoggerUtil.info(LoggerTag.PAGE, "🖱 Нажимаем кнопку 'Odeslat'");
         button.click();
     }
-
-
-
-
-
-
-
-
-
-
-
 
     @Step("Проверка появления сообщения об успешной отправке")
     public boolean isSuccessMessageDisplayed() {
@@ -246,17 +226,9 @@ public class MainPage extends BasePage {
         }
     }
 
-
     @Step("Прокрутка к контактной форме")
     public void scrollToContactForm() {
-        WebElement form = driver.findElement(By.xpath("//*[@id='formulář']")); // при необходимости уточним локатор
+        WebElement form = driver.findElement(By.xpath("//*[@id='formulář']"));
         ScrollUtil.scrollToElement(driver, form);
     }
-
-
-
-
-
-
-
 }
