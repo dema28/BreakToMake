@@ -101,11 +101,4 @@ public class MainPageTest extends BaseTest {
         assertTrue(actualUrl != null && actualUrl.contains(expected),
                 "Открыт не тот URL или вкладка не открылась. Текущий: " + actualUrl);
     }
-
-
-
-
-
-
-
 }
