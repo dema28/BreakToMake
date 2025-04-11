@@ -39,8 +39,6 @@ public class HouseDetailsPage extends BasePage {
                 .collect(Collectors.toList());
     }
 
-
-
     @Step("Получаем цены из карточки дома")
     public Map<String, String> getPricesMap() {
         scrollToElement(pricesContainer);
