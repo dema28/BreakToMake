@@ -19,7 +19,7 @@ public class HouseDetailsPageTest extends BaseTest {
     @Test(description = "Проверка заголовка, характеристик и цен")
     @Story("Детальная информация о проекте дома")
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Проверяется заголовок проекта, основные характеристики и таблица с ценами")
+    @Description("TC_AUTO_J_001. Проверяется заголовок проекта, основные характеристики и таблица с ценами")
     public void testHouseDetailsInfo() {
         try {
             LoggerUtil.logStart("testHouseDetailsInfo");
@@ -52,7 +52,7 @@ public class HouseDetailsPageTest extends BaseTest {
     @Test(description = "Проверка контактного лица на странице проекта")
     @Story("Контактная информация на карточке дома")
     @Severity(SeverityLevel.NORMAL)
-    @Description("Проверяется имя, должность, email и номер телефона контактного представителя")
+    @Description("TC_AUTO_J_002. Проверяется имя, должность, email и номер телефона контактного представителя")
     public void testContactPersonDetails() {
         try {
             LoggerUtil.logStart("testContactPersonDetails");

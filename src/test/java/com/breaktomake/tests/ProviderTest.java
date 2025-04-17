@@ -18,7 +18,7 @@ public class ProviderTest extends BaseTest {
     @Story("Контактная форма")
     @Severity(SeverityLevel.CRITICAL)
     @Owner("Denis Novicov")
-    @Description("Форма обратной связи успешно отправляется с корректными данными из CSV-файла")
+    @Description("TC_AUTO_J_003. Форма обратной связи успешно отправляется с корректными данными из CSV-файла")
     public void testSubmitContactFormWithCsvData(String firstName,
                                                  String lastName,
                                                  String email,

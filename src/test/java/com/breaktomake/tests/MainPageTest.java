@@ -19,7 +19,7 @@ public class MainPageTest extends BaseTest {
     @Story("Smoke Test")
     @Severity(SeverityLevel.CRITICAL)
     @Owner("Denis Novicov")
-    @Description("Verifies that the main page loads correctly and contains the expected title.")
+    @Description("TC_AUTO_J_004. Verifies that the main page loads correctly and contains the expected title.")
     public void testMainPageLoadsSuccessfully() {
         MainPage mainPage = new MainPage(driver);
         mainPage.open(Environment.BASE_URL);
@@ -35,7 +35,7 @@ public class MainPageTest extends BaseTest {
     @Story("Smoke-тест главного UI-блока")
     @Severity(SeverityLevel.CRITICAL)
     @Owner("Denis Novicov")
-    @Description("Проверка, что карточки домов отображаются на главной странице и их количество соответствует ожиданиям.")
+    @Description("TC_AUTO_J_006. Проверка, что карточки домов отображаются на главной странице и их количество соответствует ожиданиям.")
     public void testHouseCardsDisplayedAndCounted() {
         MainPage mainPage = new MainPage(driver);
         mainPage.open(Environment.BASE_URL);
@@ -50,7 +50,7 @@ public class MainPageTest extends BaseTest {
     @Story("Навигация по сайту")
     @Severity(SeverityLevel.CRITICAL)
     @Owner("Denis Novicov")
-    @Description("Навигация по главным разделам через меню: проверка переходов и соответствия заголовков страниц")
+    @Description("TC_AUTO_J_005. Навигация по главным разделам через меню: проверка переходов и соответствия заголовков страниц")
     public void testMenuNavigation() {
         MainPage mainPage = new MainPage(driver);
         mainPage.open(Environment.BASE_URL);
@@ -66,7 +66,7 @@ public class MainPageTest extends BaseTest {
 
     @Test(description = "Проверка перехода по ссылке Instagram")
     @Story("Переход по ссылке Instagram")
-    @Description("Проверка, что ссылка в футере корректно ведёт на Instagram-профиль компании")
+    @Description("TC_AUTO_J_007. Проверка, что ссылка в футере корректно ведёт на Instagram-профиль компании")
     public void testInstagramLinkOpensCorrectProfile() {
         MainPage mainPage = new MainPage(driver);
 
@@ -81,7 +81,7 @@ public class MainPageTest extends BaseTest {
 
     @Test(description = "Проверка перехода по ссылке Facebook")
     @Story("Переход по ссылке Facebook")
-    @Description("Проверка, что ссылка в футере корректно ведёт на Facebook-профиль компании")
+    @Description("TC_AUTO_J_008. Проверка, что ссылка в футере корректно ведёт на Facebook-профиль компании")
     public void testFacebookLinkOpensCorrectProfile() {
         MainPage mainPage = new MainPage(driver);
 
