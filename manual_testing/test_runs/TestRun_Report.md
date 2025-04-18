@@ -2,10 +2,9 @@
 
 ---
 
----
 
 | TC ID            | Название теста                                                                              | Статус | Баг           | Тест                | Автотест                       |
-| ---------------- | ------------------------------------------------------------------------------------------- | ------ | ------------- | ------------------- | ------------------------------ |
+| ---------------- | ------------------------------------------------------------------------------------------- | ------ | ------------- |---------------------| ------------------------------ |
 | TC_MMV_MODUL_001 | Negative Scenario                                                                           | Passed | -             | Automation          | TC_AUTO_PY_001                 |
 | TC_MMV_MODUL_002 | Positive Scenario                                                                           | Passed | -             | Automation          | TC_AUTO_PY_002                 |
 | TC_MMV_MODUL_003 | Валидация формата email                                                                     | Passed | -             | Manual              |                                |
@@ -16,8 +15,8 @@
 | TC_MMV_MODUL_008 | Загрузка каталога модульных домов                                                           | Passed | -             | Manual              |                                |
 | TC_MMV_MODUL_009 | Загрузка текстовых данных и изображений модуля                                              | Passed | -             | Manual              |                                |
 | TC_MMV_MODUL_010 | Кликабельность изображений в "Galerie"                                                      | Failed | BUG_MMSRO_005 | Manual              |                                |
-| TC_MMV_MODUL_011 | Кликабельность меню в мобильной версии                                                      | Failed | BUG_MMSRO_004 | Manual/Automation              |   TC_AUTO_PY_006                            |
-| TC_MMV_MODUL_012 | Корректное заполнение формы обратной связи                                                  | Passed | -             | Manual |                  |
+| TC_MMV_MODUL_011 | Кликабельность меню в мобильной версии                                                      | Failed | BUG_MMSRO_004 | Manual / Automation | TC_AUTO_PY_006                 |
+| TC_MMV_MODUL_012 | Корректное заполнение формы обратной связи                                                  | Passed | -             | Manual              |                                |
 | TC_MMV_MODUL_013 | Корректность отображения логотипа                                                           | Failed | BUG_MMSRO_001 | Manual              |                                |
 | TC_MMV_MODUL_014 | Корректность отображения списков и разделов                                                 | Passed | -             | Manual              |                                |
 | TC_MMV_MODUL_015 | Корректность отображения фото на главной странице                                           | Failed | BUG_MMSRO_007 | Manual              |                                |
@@ -26,7 +25,7 @@
 | TC_MMV_MODUL_018 | Отображение web-страницы на мобильном браузере под Android                                  | Passed | -             | Manual              |                                |
 | TC_MMV_MODUL_019 | Отображение web-страницы на мобильном браузере под iOS                                      | Passed | -             | Manual              |                                |
 | TC_MMV_MODUL_020 | Отображение главной страницы при разных разрешениях экрана                                  | Passed | -             | Manual              |                                |
-| TC_MMV_MODUL_021 | Отображение страницы ошибки (404) при переходе по несуществующему URL                       | Passed | -             | Manual/Automation          | TC_AUTO_PY_007                 |
+| TC_MMV_MODUL_021 | Отображение страницы ошибки (404) при переходе по несуществующему URL                       | Passed | -             | Manual / Automation | TC_AUTO_PY_007                 |
 | TC_MMV_MODUL_022 | Подсчёт изображений в каждом альбоме галереи                                                | Passed | -             | Automation          | TC_AUTO_PY_004                 |
 | TC_MMV_MODUL_023 | Проверка ввода в форму данных для отправки                                                  | Passed | -             | Manual              |                                |
 | TC_MMV_MODUL_024 | Проверка UI кастомной страницы 404                                                          | Passed | -             | Automation          | TC_AUTO_PY_008                 |
