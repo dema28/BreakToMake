@@ -29,3 +29,5 @@
 
 ### Test
     Automation
+
+### PYTHON: [Check tel: link to phone number](https://github.com/dema28/CrashProof/blob/main/tests/test_contact_phone.py)

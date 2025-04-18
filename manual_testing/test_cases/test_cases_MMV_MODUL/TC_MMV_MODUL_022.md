@@ -38,3 +38,5 @@
 
 ### Test
     Automation
+
+### PYTHON: [Image count in each gallery album](https://github.com/dema28/CrashProof/blob/main/tests/test_gallery_albums.py)

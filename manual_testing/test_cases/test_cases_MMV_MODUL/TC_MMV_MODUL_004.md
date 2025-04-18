@@ -35,3 +35,5 @@
 
 ### Test
     Manual
+
+### [BUG_MMSRO_008_RU – Видео не воспроизводится](../../bug_reports/BUG_MMSRO_008_RU.md)

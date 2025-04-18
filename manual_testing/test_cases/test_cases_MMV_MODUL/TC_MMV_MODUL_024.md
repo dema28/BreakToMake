@@ -29,3 +29,5 @@
 
 ### Test
     Automation
+
+### PYTHON: [UI check for custom 404 page](https://github.com/dema28/CrashProof/blob/main/tests/test_not_found_page.py)

@@ -13,7 +13,7 @@
     1. Фото (alt="Fotka Hero sekce oříznutá bez pozadí") отображается
 
 ### Actual Result / Фактический результат
-    1. Фото (alt="Fotka Hero sekce oříznutá bez pozadí") отображается
+    1. Фото (alt="Fotka Hero sekce oříznutá bez pozadí") отображается за границей контейнера.
 
 ### Severity / Серьезность
     Medium
@@ -26,3 +26,5 @@
 
 ### Test
     Manual
+
+### [BUG_MMSRO_007_RU – Фото находится вне своего контейнера](../../bug_reports/BUG_MMSRO_007_RU.md)

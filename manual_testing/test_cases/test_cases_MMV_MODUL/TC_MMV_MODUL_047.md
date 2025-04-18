@@ -33,3 +33,5 @@
 
 ### Test
     Automation
+
+### JAVA: [TC_AUTO_J_002](https://github.com/dema28/BreakToMake/blob/main/src/test/java/com/breaktomake/tests/HouseDetailsPageTest.java)

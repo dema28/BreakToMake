@@ -31,7 +31,7 @@
     6. Отобразилась страница Galerie
 
 ### Severity / Серьезность
-        Medium
+    Medium
 
 ### Priority / Приоритет
     Medium
@@ -40,4 +40,6 @@
     Google Chrome: version 134.0.6998.166 (Official Build) (64-bit)
 
 ### Test
-    Manual
+    Manual/Automation
+
+### JAVA: [TC_AUTO_J_005 - Проверка переходов по основным пунктам меню](https://github.com/dema28/BreakToMake/blob/main/src/test/java/com/breaktomake/tests/MainPageTest.java)

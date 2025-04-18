@@ -27,4 +27,6 @@
     Firefox Browser: 136.0.2 (64-bit)
 
 ### Test
-    Manual
+    Manual/Automation
+#### JAVA: [MainPageTest.java TC_AUTO_J_004](https://github.com/dema28/BreakToMake/blob/main/src/test/java/com/breaktomake/tests/MainPageTest.java)
+#### PYTHON: [test_main_page.py TC_AUTO_PY_005](https://github.com/dema28/CrashProof/blob/main/tests/test_main_page.py)

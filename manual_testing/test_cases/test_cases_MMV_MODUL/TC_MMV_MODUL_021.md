@@ -28,4 +28,6 @@
     oogle Chrome: version 134.0.6998.166 (Official Build) (64-bit)
 
 ### Test
-    Manual
+    Manual/Automation
+
+### PYTHON: [Check that non-existent page returns 404 status](https://github.com/dema28/CrashProof/blob/main/tests/test_not_found_page.py)

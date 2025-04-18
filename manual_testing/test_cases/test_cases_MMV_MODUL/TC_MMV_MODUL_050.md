@@ -28,3 +28,5 @@
 
 ### Test
     Automation
+
+### JAVA: [TC_AUTO_J_007](https://github.com/dema28/BreakToMake/blob/main/src/test/java/com/breaktomake/tests/MainPageTest.java)
