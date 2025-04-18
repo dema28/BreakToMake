@@ -22,8 +22,11 @@ public class MainPageTest extends BaseTest {
     @Description("TC_AUTO_J_004. Verifies that the main page loads correctly and contains the expected title.")
     public void testMainPageLoadsSuccessfully() {
         MainPage mainPage = new MainPage(driver);
+
+        step("Открытие главной страницы");
         mainPage.open(Environment.BASE_URL);
 
+        step("Получение заголовка страницы и проверка");
         String expectedTitle = "Modulconstruct - Líšnice";
         String actualTitle = mainPage.getTitle();
 
@@ -38,13 +41,18 @@ public class MainPageTest extends BaseTest {
     @Description("TC_AUTO_J_006. Проверка, что карточки домов отображаются на главной странице и их количество соответствует ожиданиям.")
     public void testHouseCardsDisplayedAndCounted() {
         MainPage mainPage = new MainPage(driver);
+
+        step("Открытие главной страницы");
         mainPage.open(Environment.BASE_URL);
 
+        step("Получение количества карточек домов");
         int cardCount = mainPage.getHouseCardCount();
 
+        step("Проверка, что карточки отображаются и их 7");
         assertTrue(cardCount > 0, "Карточки домов не найдены на главной странице.");
         assertEquals(cardCount, 7, "Количество карточек домов не совпадает с ожидаемым.");
     }
+
 
     @Test(description = "Проверка переходов по основным пунктам меню")
     @Story("Навигация по сайту")
