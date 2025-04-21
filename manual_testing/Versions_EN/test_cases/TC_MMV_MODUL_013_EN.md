@@ -27,4 +27,4 @@
 ### Test
     Manual
 
-### [BUG_MMSRO_001_RU – Incorrect logo display](../../bug_reports/BUG_MMSRO_001_RU.md)
+### [BUG_MMSRO_001_RU – Incorrect logo display](../../Versions_RU/bug_reports/BUG_MMSRO_001_RU.md)

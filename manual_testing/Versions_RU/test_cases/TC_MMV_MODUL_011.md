@@ -37,4 +37,4 @@
     Manual/Automation
 
 ### PYTHON: [Menu items are clickable and lead to correct sections (mobile)](https://github.com/dema28/CrashProof/blob/main/tests/test_main_page_mobile.py)
-### [BUG_MMSRO_004_RU – Отсутствие обратной связи на кнопках вкладок](../../bug_reports/BUG_MMSRO_004_RU.md)
+### [BUG_MMSRO_004_RU – Отсутствие обратной связи на кнопках вкладок](../bug_reports/BUG_MMSRO_004_RU.md)

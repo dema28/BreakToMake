@@ -27,4 +27,4 @@
 ### Test
     Manual
 
-### [BUG_MMSRO_007_RU – Фото находится вне своего контейнера](../../bug_reports/BUG_MMSRO_007_RU.md)
+### [BUG_MMSRO_007_RU – Фото находится вне своего контейнера](../bug_reports/BUG_MMSRO_007_RU.md)

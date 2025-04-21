@@ -33,4 +33,4 @@
 ### Test: 
     Manual
 
-### [BUG_MMSRO_005_RU – Non-clickable photos in gallery](../../bug_reports/BUG_MMSRO_005_RU.md)
+### [BUG_MMSRO_005_RU – Non-clickable photos in gallery](../../Versions_RU/bug_reports/BUG_MMSRO_005_RU.md)

@@ -36,4 +36,4 @@
 ### Test
     Manual
 
-### [BUG_MMSRO_008_RU – Video doesn't play](../../bug_reports/BUG_MMSRO_008_RU.md)
+### [BUG_MMSRO_008_RU – Video doesn't play](../../Versions_RU/bug_reports/BUG_MMSRO_008_RU.md)

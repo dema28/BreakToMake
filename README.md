@@ -88,10 +88,10 @@ bash scripts/run_postman_tests.sh
 
 | Раздел               | Ссылка                                                        |
 |----------------------|---------------------------------------------------------------|
-| Тест-кейсы          | [test_cases_MMV_MODUL](manual_testing/test_cases/test_cases_MMV_MODUL/) |
-| Баг-репорты         | [bug_reports](manual_testing/bug_reports/)                   |
+| Тест-кейсы          | [test_cases_MMV_MODUL](manual_testing/Versions_RU/test_cases/) |
+| Баг-репорты         | [bug_reports](manual_testing/Versions_RU/bug_reports/)                   |
 | Ошибки Allure      | [Allure_Errors_Solutions.md](Allure_Errors_Solutions.md)     |
-| Финальный тест-прогон| [TestRun_Report.md](manual_testing/test_runs/TestRun_Report.md) |
+| Финальный тест-прогон| [TestRun_Report.md](manual_testing/Versions_RU/test_runs/TestRun_Report.md) |
 | UI автотесты      | [README_AUTOTESTS.md](README_AUTOTESTS.md)                   |
 | Инструкция Postman | [README_RUN_POSTMAN_TESTS.md](README_RUN_POSTMAN_TESTS.md)   |
 

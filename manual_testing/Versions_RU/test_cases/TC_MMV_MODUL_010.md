@@ -33,4 +33,4 @@
 ### Test: 
     Manual
 
-### [BUG_MMSRO_005_RU – Некликабельные фото в галерее](../../bug_reports/BUG_MMSRO_005_RU.md)
+### [BUG_MMSRO_005_RU – Некликабельные фото в галерее](../bug_reports/BUG_MMSRO_005_RU.md)

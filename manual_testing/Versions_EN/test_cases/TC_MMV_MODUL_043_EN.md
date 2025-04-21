@@ -33,4 +33,4 @@
 ### Test
     Manual
 
-### [BUG_MMSRO_003_EN – Photo offset in mobile gallery](../../bug_reports/BUG_MMSRO_003_RU.md)
+### [BUG_MMSRO_003_EN – Photo offset in mobile gallery](../../Versions_RU/bug_reports/BUG_MMSRO_003_RU.md)

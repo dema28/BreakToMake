@@ -27,4 +27,4 @@
 ### Test
     Manual
 
-### [BUG_MMSRO_007_RU – Photo is outside its container](../../bug_reports/BUG_MMSRO_007_RU.md)
+### [BUG_MMSRO_007_RU – Photo is outside its container](../../Versions_RU/bug_reports/BUG_MMSRO_007_RU.md)

@@ -33,4 +33,4 @@
 ### Test
     Manual
 
-### [BUG_MMSRO_002_RU – Low animation performance](../../bug_reports/BUG_MMSRO_002_RU.md)
+### [BUG_MMSRO_002_RU – Low animation performance](../../Versions_RU/bug_reports/BUG_MMSRO_002_RU.md)

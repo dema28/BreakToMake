@@ -33,4 +33,4 @@
 ### Test
     Manual
 
-### [BUG_MMSRO_002_RU – Низкая производительность анимаций](../../bug_reports/BUG_MMSRO_002_RU.md)
+### [BUG_MMSRO_002_RU – Низкая производительность анимаций](../bug_reports/BUG_MMSRO_002_RU.md)

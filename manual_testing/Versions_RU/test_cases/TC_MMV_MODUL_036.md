@@ -34,4 +34,4 @@
 ### Test
     Manual
 
-### [BUG_MMSRO_003_RU – Сдвиг фото в мобильной галерее](../../bug_reports/BUG_MMSRO_003_RU.md)
+### [BUG_MMSRO_003_RU – Сдвиг фото в мобильной галерее](../bug_reports/BUG_MMSRO_003_RU.md)

@@ -27,4 +27,4 @@
 ### Test
     Manual
 
-### [BUG_MMSRO_001_RU – Некорректное отображение логотипа](../../bug_reports/BUG_MMSRO_001_RU.md)
+### [BUG_MMSRO_001_RU – Некорректное отображение логотипа](../bug_reports/BUG_MMSRO_001_RU.md)
