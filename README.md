@@ -88,7 +88,7 @@ For details see [README_RUN_POSTMAN_TESTS.md](README_RUN_POSTMAN_TESTS_EN.md)
 | Section             | Link                                                                        |
 |---------------------|-----------------------------------------------------------------------------|
 | Test Cases          | [test_cases_MMV_MODUL](manual_testing/Versions_EN/test_cases/)              |
-| Bug Reports         | [bug_reports](manual_testing/Versions_EN/bugs_reports/)                     |
+| Bug Reports         | [bugs_reports](manual_testing/Versions_EN/bugs_reports/)                    |
 | Allure Errors       | [Allure_Errors_Solutions.md](Allure_Errors_Solutions.md)                    |
 | Final Test Report   | [TestRun_Report.md](manual_testing/Versions_EN/test_runs/TestRun_Report.md) |
 | UI Autotests        | [README_AUTOTESTS.md](README_AUTOTESTS_EN.md)                               |
