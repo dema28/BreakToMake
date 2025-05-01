@@ -1,50 +1,50 @@
-# Инструкции по запуску автотестов с Allure (Java + TestNG + Maven)
+# Instructions for Running Autotests with Allure (Java + TestNG + Maven)
 
-## Условия
+## Requirements
 
-- Установлен **JDK 17** (`JAVA_HOME` настроен)
-- **Maven** установлен и доступен в `PATH`
-- **Allure CLI** установлен (`allure --version` работает)
-- Все зависимости подтянуты (`mvn clean verify` или `mvn dependency:resolve`)
-
----
-
-## Для Windows / PowerShell
-
-| №  | Действие                                        | Команда                                                                 |
-|----|-------------------------------------------------|-------------------------------------------------------------------------|
-| 1  | Удалить старые сборки и результаты              | `mvn clean`                                                             |
-| 2  | Запустить тесты с генерацией Allure-результатов | `mvn test`                                                              |
-| 3  | Сгенерировать Allure-отчёт                      | `allure generate target/allure-results --clean -o target/allure-report` |
-| 4  | Открыть Allure-отчёт в браузере                 | `allure open target/allure-report`                                      |
-| 5  | Запустить конкретный тест (пример)              | `mvn -Dtest=CatalogPageTest#testCatalogHouseCardsAreVisibleAndCounted test` |
+- **JDK 17** installed (`JAVA_HOME` configured)
+- **Maven** installed and available in `PATH`
+- **Allure CLI** installed (`allure --version` should work)
+- All dependencies resolved (`mvn clean verify` or `mvn dependency:resolve`)
 
 ---
 
-## Для Linux / macOS / CI
+## For Windows / PowerShell
 
-(дополнительно: `export DISPLAY=:99` — если используется Xvfb вручную)
-
-| №  | Действие                                        | Команда                                                                 |
-|----|-------------------------------------------------|-------------------------------------------------------------------------|
-| 1  | Удалить старые сборки и результаты              | `mvn clean`                                                             |
-| 2  | Запустить тесты                                 | `mvn test`                                                              |
-| 3  | Сгенерировать Allure-отчёт                      | `allure generate target/allure-results --clean -o target/allure-report` |
-| 4  | Открыть Allure-отчёт                            | `allure open target/allure-report`                                      |
-| 5  | Запустить конкретный тест                       | `mvn -Dtest=CatalogPageTest#testCatalogHouseCardsAreVisibleAndCounted test` |
+| #  | Action                                           | Command                                                                 |
+|----|--------------------------------------------------|-------------------------------------------------------------------------|
+| 1  | Remove old builds and results                    | `mvn clean`                                                             |
+| 2  | Run tests and generate Allure results            | `mvn test`                                                              |
+| 3  | Generate Allure report                           | `allure generate target/allure-results --clean -o target/allure-report` |
+| 4  | Open Allure report in browser                    | `allure open target/allure-report`                                      |
+| 5  | Run a specific test (example)                    | `mvn -Dtest=CatalogPageTest#testCatalogHouseCardsAreVisibleAndCounted test` |
 
 ---
 
-## Дополнительно
+## For Linux / macOS / CI
 
-- **Запуск по группам** (если используется `@Test(groups = "...")`):
+(Additionally: `export DISPLAY=:99` — if using Xvfb manually)
+
+| #  | Action                                           | Command                                                                 |
+|----|--------------------------------------------------|-------------------------------------------------------------------------|
+| 1  | Remove old builds and results                    | `mvn clean`                                                             |
+| 2  | Run tests                                        | `mvn test`                                                              |
+| 3  | Generate Allure report                           | `allure generate target/allure-results --clean -o target/allure-report` |
+| 4  | Open Allure report                               | `allure open target/allure-report`                                      |
+| 5  | Run a specific test                              | `mvn -Dtest=CatalogPageTest#testCatalogHouseCardsAreVisibleAndCounted test` |
+
+---
+
+## Additional
+
+- **Run by groups** (if using `@Test(groups = "...")`):
   ```bash
   mvn test -Dgroups=smoke
   ```
 
 ---
 
-## Git игнор
+## Git Ignore
 
 ```gitignore
 # Allure
@@ -61,4 +61,4 @@ logs/
 
 ---
 
-✅ Всё готово для локального запуска и CI. При необходимости добавляйте параметры или расширяйте конфигурацию под конкретные окружения.
+✅ Everything is ready for local and CI execution. Add parameters or extend the configuration for specific environments if needed.
