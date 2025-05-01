@@ -73,26 +73,26 @@ mvn clean test
 allure generate target/allure-results --clean -o target/allure-report
 allure open target/allure-report
 ```
-For details see [README_AUTOTESTS.md](README_AUTOTESTS.md)
+For details see [README_AUTOTESTS.md](README_AUTOTESTS_EN.md)
 
 ### API Tests (Postman + Newman)
 ```bash
 bash scripts/run_postman_tests.sh
 ```
-For details see [README_RUN_POSTMAN_TESTS.md](README_RUN_POSTMAN_TESTS.md)
+For details see [README_RUN_POSTMAN_TESTS.md](README_RUN_POSTMAN_TESTS_EN.md)
 
 ---
 
 ## Useful Links
 
-| Section             | Link                                                           |
-|---------------------|----------------------------------------------------------------|
-| Test Cases          | [test_cases_MMV_MODUL](manual_testing/Versions_RU/test_cases/) |
-| Bug Reports         | [bug_reports](manual_testing/Versions_RU/bug_reports/)          |
-| Allure Errors       | [Allure_Errors_Solutions.md](Allure_Errors_Solutions.md)        |
-| Final Test Report   | [TestRun_Report.md](manual_testing/Versions_RU/test_runs/TestRun_Report.md) |
-| UI Autotests        | [README_AUTOTESTS.md](README_AUTOTESTS.md)                      |
-| Postman Instruction | [README_RUN_POSTMAN_TESTS.md](README_RUN_POSTMAN_TESTS.md)      |
+| Section             | Link                                                                        |
+|---------------------|-----------------------------------------------------------------------------|
+| Test Cases          | [test_cases_MMV_MODUL](manual_testing/Versions_EN/test_cases/)              |
+| Bug Reports         | [bug_reports](manual_testing/Versions_EN/bug_reports/)                      |
+| Allure Errors       | [Allure_Errors_Solutions.md](Allure_Errors_Solutions.md)                    |
+| Final Test Report   | [TestRun_Report.md](manual_testing/Versions_EN/test_runs/TestRun_Report.md) |
+| UI Autotests        | [README_AUTOTESTS.md](README_AUTOTESTS_EN.md)                               |
+| Postman Instruction | [README_RUN_POSTMAN_TESTS.md](README_RUN_POSTMAN_TESTS_EN.md)               |
 
 ---
 
@@ -100,4 +100,4 @@ For details see [README_RUN_POSTMAN_TESTS.md](README_RUN_POSTMAN_TESTS.md)
 
 This project is licensed under the **MIT** license.  
 Author: **Denis Novicov** | QA Manual & Automation Engineer 🇨🇿  
-See [LICENSE.txt](LICENSE.txt) for more details.
+See [LICENSE.txt](LICENSE_EN.txt) for more details.
