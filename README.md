@@ -85,14 +85,14 @@ For details see [README_RUN_POSTMAN_TESTS.md](README_RUN_POSTMAN_TESTS_EN.md)
 
 ## Useful Links
 
-| Section             | Link                                                                           |
-|---------------------|--------------------------------------------------------------------------------|
-| Test Cases          | [test_cases_MMV_MODUL](manual_testing/Versions_EN/test_cases/)                 |
-| Bug Reports         | [bugs_reports](manual_testing/Versions_EN/bugs_reports/)                       |
-| Allure Errors       | [Allure_Errors_Solutions.md](Allure_Errors_Solutions_EN.md)                    |
-| Final Test Report   | [TestRun_Report.md](manual_testing/Versions_EN/test_runs/TestRun_Report_EN.md) |
-| UI Autotests        | [README_AUTOTESTS.md](README_AUTOTESTS_EN.md)                                  |
-| Postman Instruction | [README_RUN_POSTMAN_TESTS.md](README_RUN_POSTMAN_TESTS_EN.md)                  |
+| Section             | Link                                                                            |
+|---------------------|---------------------------------------------------------------------------------|
+| Test Cases          | [test_cases_MMV_MODUL](manual_testing/Versions_EN/test_cases/)                  |
+| Bug Reports         | [bugs_reports](manual_testing/Versions_EN/bugs_reports/)                        |
+| Allure Errors       | [Allure_Errors_Solutions.md](Allure_Errors_Solutions_EN.md)                     |
+| Final Test Report   | [TestRun_Report.md](manual_testing/Versions_EN/test_runs/test_run_Report_EN.md) |
+| UI Autotests        | [README_AUTOTESTS.md](README_AUTOTESTS_EN.md)                                   |
+| Postman Instruction | [README_RUN_POSTMAN_TESTS.md](README_RUN_POSTMAN_TESTS_EN.md)                   |
 
 ---
 
