@@ -22,13 +22,13 @@ public class Environment {
 
     public static boolean isHeadless() {
         boolean headless = Boolean.parseBoolean(ConfigReader.get("headless"));
-        LoggerUtil.debug(LoggerTag.ENV, "🔒 Headless: " + headless);
+        LoggerUtil.debug(LoggerTag.ENV, "Headless: " + headless);
         return headless;
     }
 
     public static String getBrowser() {
         String browser = ConfigReader.get("browser");
-        LoggerUtil.debug(LoggerTag.ENV, "🌐 Браузер: " + browser);
+        LoggerUtil.debug(LoggerTag.ENV, "Браузер: " + browser);
         return browser;
     }
 
@@ -36,23 +36,23 @@ public class Environment {
         String timeoutStr = ConfigReader.get("timeout");
         try {
             int timeout = Integer.parseInt(timeoutStr);
-            LoggerUtil.debug(LoggerTag.ENV, "⏱ Таймаут: " + timeout + " сек.");
+            LoggerUtil.debug(LoggerTag.ENV, "Таймаут: " + timeout + " сек.");
             return timeout;
         } catch (NumberFormatException e) {
-            LoggerUtil.warn(LoggerTag.ENV, "⚠️ Некорректный таймаут, используется по умолчанию: 10");
+            LoggerUtil.warn(LoggerTag.ENV, "Некорректный таймаут, используется по умолчанию: 10");
             return 10;
         }
     }
 
     public static boolean isScreenshotOnFail() {
         boolean flag = Boolean.parseBoolean(ConfigReader.get("screenshot.on.fail"));
-        LoggerUtil.debug(LoggerTag.ENV, "📸 Скрин при падении: " + flag);
+        LoggerUtil.debug(LoggerTag.ENV, "Скрин при падении: " + flag);
         return flag;
     }
 
     public static String getWindowSize() {
         String size = ConfigReader.get("window.size");
-        LoggerUtil.debug(LoggerTag.ENV, "🪟 Размер окна: " + size);
+        LoggerUtil.debug(LoggerTag.ENV, "Размер окна: " + size);
         return size;
     }
 
@@ -63,16 +63,16 @@ public class Environment {
                     .map(String::trim)
                     .filter(s -> !s.isEmpty())
                     .toList();
-            LoggerUtil.debug(LoggerTag.ENV, "⚙️ Chrome аргументы: " + list);
+            LoggerUtil.debug(LoggerTag.ENV, "Chrome аргументы: " + list);
             return list;
         }
-        LoggerUtil.debug(LoggerTag.ENV, "⚙️ Chrome аргументы не заданы");
+        LoggerUtil.debug(LoggerTag.ENV, "Chrome аргументы не заданы");
         return Collections.emptyList();
     }
 
     public static boolean isCloseBrowserOnError() {
         boolean close = Boolean.parseBoolean(ConfigReader.get("local.closeBrowserIfError"));
-        LoggerUtil.debug(LoggerTag.ENV, "🛑 Закрытие браузера при ошибке: " + close);
+        LoggerUtil.debug(LoggerTag.ENV, "Закрытие браузера при ошибке: " + close);
         return close;
     }
 }
